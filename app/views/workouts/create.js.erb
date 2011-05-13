@@ -1,0 +1,14 @@
+/* insert a notice between last workout and workout form */
+$("#workout-notice").html('<div class="flash notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+
+/* replace the count of workouts */
+$("#workout_count").html("<%= workout_counter %>");
+
+/* Add the new workout to the bottom of the workouts list */
+$("#workouts").append("<%= escape_javascript(render(@workout)) %>");
+
+/* Highlight the new comment */
+$("#workout_<%= @workout.id %>").effect("highlight", {}, 3000);
+
+/* Reset the comment form */
+$("#new_workout")[0].reset();
