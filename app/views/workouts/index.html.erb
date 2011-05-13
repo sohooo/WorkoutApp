@@ -8,4 +8,12 @@
 
 
   <h2>add workout</h2>
+  <%= form_for Workout.new do |f| %>
+    <%= f.label :date, "Date" %><br />
+    <%= f.datetime_select :date %><br />
+    <%= f.label :location, "Location" %><br />
+    <%= f.text_field :location %><br />
+    <%= f.submit "add workout" %>
+  <% end -%>
+
 </div>

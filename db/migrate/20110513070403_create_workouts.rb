@@ -2,6 +2,7 @@ class CreateWorkouts < ActiveRecord::Migration
   def self.up
     create_table :workouts do |t|
       t.datetime :date
+      # t.time :time
       t.text :location
 
       t.timestamps
