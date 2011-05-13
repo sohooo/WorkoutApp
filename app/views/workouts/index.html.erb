@@ -1,0 +1,11 @@
+<div id="workouts">
+  <% unless @workouts.empty? %>
+    <h1>workout list</h1>
+    <%= render :partial => @workouts, :locals => { :list => true } %>
+  <% else -%>
+    <p>add some workouts below!</p>
+  <% end -%>
+
+
+  <h2>add workout</h2>
+</div>
