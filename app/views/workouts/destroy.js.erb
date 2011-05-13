@@ -1,0 +1,5 @@
+/* fade out deleted workout */
+$("#workout_<%= @workout.id %>").fadeOut();
+
+/* replace workouts counter */
+$("#workout_count").html("<%= pluralize(Workout.count, "workout") %>");
