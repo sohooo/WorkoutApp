@@ -1,6 +1,6 @@
 <%= div_for workout do -%>
   <p>
-    @<%= workout.location %>, <%= time_ago_in_words(workout.date) %> ago
+    @<%= workout.location %>, <%= days_ago_in_words(workout.date) %>
     <%= link_to "[delete]", workout_path(workout),
       :method => :delete, :class => "delete", :remote => true %>
   </p>
