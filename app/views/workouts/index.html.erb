@@ -1,5 +1,18 @@
+<div id="add-workout">
+  <h2>add workout</h2>
+  <%= form_for Workout.new, :remote => true do |f| %>
+    <%= f.label :location, "Location" %><br />
+    <%= f.text_field :location, :autofocus => true %><br />
+    <%= f.label :date, "Date" %><br />
+    <%= f.date_select :date %><br />
+    <%= f.submit "add workout" %>
+  <% end -%>
+</div>
+
+<div id="workout-notice"> </div>
+
 <div id="workouts">
-  <% unless @workouts.empty? %>
+  <% if @workouts.any? %>
     <h1>workout list</h1>
     <span id="workout_count"><%= pluralize(@workouts.count, "workout") %></span>
     <%= render :partial => @workouts, :locals => { :list => true } %>
@@ -8,13 +21,4 @@
   <% end -%>
 
 </div>
-<div id="workout-notice"> </div>
 
-<h2>add workout</h2>
-<%= form_for Workout.new, :remote => true do |f| %>
-  <%= f.label :location, "Location" %><br />
-  <%= f.text_field :location, :autofocus => true %><br />
-  <%= f.label :date, "Date" %><br />
-  <%= f.date_select :date %><br />
-  <%= f.submit "add workout" %>
-<% end -%>

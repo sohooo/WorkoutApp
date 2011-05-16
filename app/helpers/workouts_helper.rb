@@ -3,6 +3,16 @@ module WorkoutsHelper
     pluralize(Workout.count, "workout")
   end
 
+  def to_kg(weight)
+    if weight
+      if weight > 0
+      "#{weight} kg"
+      end
+    else
+      ""
+    end
+  end
+
   def days_ago_in_words(date, include_seconds = false)
     to_time   = Time.now
     from_time = date.beginning_of_day

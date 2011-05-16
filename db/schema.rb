@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513070403) do
+ActiveRecord::Schema.define(:version => 20110516075537) do
+
+  create_table "exercises", :force => true do |t|
+    t.text     "name",                      :null => false
+    t.integer  "workout_id"
+    t.integer  "sets",       :default => 1
+    t.integer  "reps"
+    t.integer  "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "workouts", :force => true do |t|
     t.date     "date"

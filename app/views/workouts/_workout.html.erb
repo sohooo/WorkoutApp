@@ -3,5 +3,30 @@
     @<%= workout.location %>, <%= days_ago_in_words(workout.date) %>
     <%= link_to "[delete]", workout_path(workout),
       :method => :delete, :class => "delete", :remote => true %>
+      <%= link_to "[+]", "#add_exercise", :class => "add_exercise" %>
   </p>
+
+  <div class="new_exercise">
+    <%= form_for([workout, Exercise.new]) do |f| %>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+      <%= f.label :weight, "Weight" %>
+      <%= f.text_field :weight %>
+      <%= f.label :reps, "Reps" %>
+      <%= f.text_field :reps %>
+      <%= f.label :sets, "Sets" %>
+      <%= f.text_field :sets %>
+      <%= f.submit "add exercise" %>
+    <% end -%>
+  </div>
+
+  <% if workout.exercises.any? -%>
+    <ul>
+      <% workout.exercises.each do |e| -%>
+        <li><%= e.name %>, <%= to_kg(e.weight) %></li>
+      <% end -%>
+    </ul>
+  <% end -%>
+
 <% end -%>
+
