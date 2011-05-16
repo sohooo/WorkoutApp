@@ -7,8 +7,11 @@ $("#workout_count").html("<%= workout_counter %>");
 /* Add the new workout to the bottom of the workouts list */
 $("#workouts").append("<%= escape_javascript(render(@workout)) %>");
 
-/* Highlight the new comment */
+/* Highlight the new workout */
 $("#workout_<%= @workout.id %>").effect("highlight", {}, 3000);
 
-/* Reset the comment form */
+/* Reset the workout form */
 $("#new_workout")[0].reset();
+
+/* focus new exercise form */
+$("input#exercise_name").focus();

@@ -16,6 +16,13 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def update
+    @workout = Workout.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def destroy
     @workout = Workout.find(params[:id])
     @workout.destroy

@@ -1,0 +1,18 @@
+/*
+todos:
+------
+  - update exercises counter besides workout
+  - fade in new exercise
+*/
+/* Add the new exercise to the bottom of the workout */
+$("#workout_<%= @workout.id %>").append("<%= escape_javascript(render :partial => "workouts/exercise", :locals => { :exercise => @exercise }) %>");
+
+/* Highlight the new exercise */
+$("#exercise_<%= @exercise.id %>").effect("highlight", {}, 3000);
+
+/* Reset the exercise form */
+$("form#new_exercise")[0].reset();
+
+/* refocus exercise form */
+$("input#exercise_name").focus();
+
