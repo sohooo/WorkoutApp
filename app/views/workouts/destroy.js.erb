@@ -1,5 +1,8 @@
 /* fade out deleted workout */
 $("#workout_<%= @workout.id %>").fadeOut();
 
-/* replace workouts counter */
-$("#workout_count").html("<%= workout_counter %>");
+/* @status: replace the count of workouts */
+$("#workout_count").html("<%= stat_workout_counter %>");
+
+/* @status: replace last workout status */
+$("#last_workout").html("<%= stat_last_workout %>");

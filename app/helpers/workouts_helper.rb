@@ -1,6 +1,11 @@
 module WorkoutsHelper
-  def workout_counter
+  def stat_workout_counter
     Workout.count || 0
+  end
+
+  def stat_last_workout
+    latest = Workout.order("date DESC").first
+    days_ago_in_words(latest.date)
   end
 
   def to_kg(weight)
