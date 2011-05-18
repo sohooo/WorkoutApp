@@ -5,10 +5,7 @@ $("#workout-notice").html('<div class="flash notice"><%= escape_javascript(flash
 $("#workout_count").html("<%= workout_counter %>");
 
 /* Add the new workout to the bottom of the workouts list */
-$("#workouts").append("<%= escape_javascript(render(@workout)) %>");
-
-/* Highlight the new workout */
-$("#workout_<%= @workout.id %>").effect("highlight", {}, 3000);
+$("#workouts").prepend("<%= escape_javascript(render(@workout)) %>");
 
 /* Reset the workout form */
 $("#new_workout")[0].reset();

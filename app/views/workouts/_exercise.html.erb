@@ -1,3 +1,10 @@
 <%= div_for exercise do %>
-  <p><%= exercise.name %>, <%= to_kg(exercise.weight) %></p>
+  <p>
+    <span class="sets"><%= exercise.sets %></span>x<span class="reps"><%= exercise.reps %></span>
+    <span class="name"><%= exercise.name %></span>
+    <% if with_weight?(exercise) -%>
+      with 
+      <span class="weight"><%= to_kg(exercise.weight) %></span>
+    <% end -%>
+  </p>
  <% end -%>

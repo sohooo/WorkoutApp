@@ -1,23 +1,24 @@
-<%= div_for workout do %>
-  <p>
-    @<%= workout.location %>, <%= days_ago_in_words(workout.date) %>
+<%= div_for(workout, :class => cycle("even", "odd")) do %>
+  <p class="meta">
+    <span class="date"><%= days_ago_in_words(workout.date) %></span>
+    <span class="at">@</span>
+    <span class="location"><%= workout.location %></span>
     <%= link_to "[delete]", workout_path(workout),
-      :method => :delete, :class => "delete", :remote => true %>
+      :method => :delete,
+      :class => "delete",
+      :confirm => "Really delete this workout?",
+      :remote => true %>
     <%= link_to "[+]", workout_path(workout),
       :method => :put, :class => "exercise", :remote => true %>
   </p>
 
   <div class="exercise_form workout_<%= workout.id %>">
     <%= form_for [workout, Exercise.new], :remote => true do |f| %>
-      <%= f.label :name, "Name" %>
-      <%= f.text_field :name %>
-      <%= f.label :weight, "Weight" %>
-      <%= f.text_field :weight %>
-      <%= f.label :reps, "Reps" %>
-      <%= f.text_field :reps %>
-      <%= f.label :sets, "Sets" %>
-      <%= f.text_field :sets %>
-      <%= f.submit "add exercise" %>
+      <%= f.text_field :name,   :placeholder => "name",   :size => 20 %>
+      <%= f.text_field :weight, :placeholder => "weight", :size => 4 %>
+      <%= f.text_field :reps,   :placeholder => "reps",   :size => 4 %>
+      <%= f.text_field :sets,   :placeholder => "sets",   :size => 4 %>
+      <%= f.submit "add exercise", :size => 12 %>
     <% end -%>
   </div>
 
