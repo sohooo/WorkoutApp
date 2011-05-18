@@ -91,7 +91,6 @@ a:hover {
 }
 .workout span.location {
   color: rgba(64,59,51,1);
-  font-style: italic;
 }
 .workout span.date {
   font-weight: bold;
@@ -105,12 +104,14 @@ a:hover {
  * ----------------------------------------------------------------- */
 div.exercise {
   padding: 3px 0 3px 35px;
+  font-style: italic;
 }
 div.exercise p { font-size: .8em; color: rgba(64,59,51,.4); }
 div.exercise span.name,
 div.exercise span.weight,
 div.exercise span.sets,
 div.exercise span.reps {
+  font-style: normal;
   padding: 0 3px;
   color: rgba(64,59,51,1);
 }
