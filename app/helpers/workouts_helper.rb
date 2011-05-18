@@ -18,16 +18,6 @@ module WorkoutsHelper
     end
   end
 
-  # def workout_count(workouts)
-  #   content_tag :div, :class => "workout_count" do
-  #     if workouts.any?
-  #       pluralize(workouts.size, "workout") + " total"
-  #     else
-  #       "no workouts performed"
-  #     end
-  #   end
-  # end
-
   def last_workout(workouts)
     if workouts.any?
       latest = Workout.order("date DESC").first
@@ -35,6 +25,24 @@ module WorkoutsHelper
     else
       "soon"
     end
+  end
+
+  def workout_activity(date)
+    timeframe = date || 1.month
+
+    end_date   = Date.today
+    start_date = Date.today - timeframe
+
+    workouts = Workout.where(:date => start_date..end_date)
+    activity = []
+    (start_date..end_date).step(1) do |day|
+      if workouts.where(:date => day).any?
+        activity << 1
+      else
+        activity << 0
+      end
+    end
+    activity.join(",")
   end
 
   def days_ago_in_words(date, include_seconds = false)

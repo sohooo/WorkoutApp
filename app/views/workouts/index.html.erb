@@ -5,6 +5,9 @@
   <div class="workout_count">
     workouts: <span id="workout_count"><%= @workouts.size || 0 %></span>
   </div>
+  <div class="workout_activity">
+    activity: <span class="inlinesparkline workout_activity" values="<%= workout_activity(1.month) %>"></span>
+  </div>
 </div>
 
 <h1>add workout</h2>

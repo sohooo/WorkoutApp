@@ -7,6 +7,8 @@ body {
   background: rgba(237,235,230,1);
 }
 
+/* .workout_activity { display: none; } */
+
 h1 {
   color: rgba(211,100,59,1);
   text-transform: uppercase;
@@ -42,19 +44,23 @@ a:hover {
   #status p {
     padding: 5px 20px;
   }
-
   #status .last_workout {
     float: left;
     width: 200px;
-    padding: 20px 30px;
+    padding: 20px 30px 10px 30px;
   }
   #status .workout_count {
     margin-left: 200px;
-    padding: 20px;
-}
+    padding: 20px 0 10px 20px;
+  }
+  #status .workout_activity {
+    clear: both;
+    padding: 10px 30px;
+  }
+  #status .workout_activity canvas { vertical-align: bottom !important; }
   #status .workout_count span,
   #status .last_workout span {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     display: block;
     color: rgba(214,225,199,1);
