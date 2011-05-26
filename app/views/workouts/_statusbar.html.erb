@@ -1,0 +1,11 @@
+<div id="status">
+  <div class="last_workout">
+    last workout: <span id="last_workout"><%= last_workout(workouts) %></span>
+  </div>
+  <div class="workout_count">
+    workouts: <span id="workout_count"><%= workouts.size || 0 %></span>
+  </div>
+  <div class="workout_activity">
+    activity: <span class="inlinesparkline workout_activity" values="<%= workout_activity(1.month) %>"></span>
+  </div>
+</div>

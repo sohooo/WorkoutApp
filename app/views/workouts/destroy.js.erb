@@ -1,3 +1,9 @@
+/* insert a notification */
+$("#notifications").html('<p class="flash notice"><%= escape_javascript(flash.delete(:notice)) %></p>');
+
+/* fade out notification after 5 seconds */
+$("p.notice").delay(5000).fadeOut("slow");
+
 /* fade out deleted workout */
 $("#workout_<%= @workout.id %>").fadeOut();
 

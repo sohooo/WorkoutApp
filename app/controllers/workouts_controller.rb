@@ -29,6 +29,7 @@ class WorkoutsController < ApplicationController
   def destroy
     @workout = current_user.workouts.find(params[:id])
     @workout.destroy
+    flash[:notice] = "Workout deleted"
     respond_to do |format|
       format.html { redirect_to workouts_path }
       format.js

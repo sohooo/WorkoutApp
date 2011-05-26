@@ -1,5 +1,8 @@
-/* insert a notice between last workout and workout form */
-$("#workout-notice").html('<div class="flash notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+/* insert a notification */
+$("#notifications").html('<p class="flash notice"><%= escape_javascript(flash.delete(:notice)) %></p>');
+
+/* fade out notification after 5 seconds */
+$("p.notice").delay(5000).fadeOut("slow");
 
 /* @status: replace the count of workouts */
 $("#workout_count").html("<%= stat_workout_counter %>");

@@ -12,6 +12,18 @@
 </head>
 <body>
 
+  <div id="notifications">
+    <% if notice -%>
+      <p class="notice"><%= notice %></p>
+    <% end -%>
+
+    <% if alert -%>
+      <p class="alert"><%= alert %></p>
+    <% end -%>
+  </div>
+
+  <%= yield :statusbar %>
+
   <div id="user_nav">  
     <% if user_signed_in? %>  
       signed in as <%= current_user.email %> | 
@@ -21,14 +33,6 @@
       <%= link_to "sign in", new_user_session_path %>  
     <% end %>  
   </div>
-
-  <% if notice -%>
-    <p class="notice"><%= notice %></p>
-  <% end -%>
-
-  <% if alert -%>
-    <p class="alert"><%= alert %></p>
-  <% end -%>
 
 <%= yield %>
 

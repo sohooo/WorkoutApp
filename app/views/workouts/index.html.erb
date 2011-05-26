@@ -1,14 +1,6 @@
-<div id="status">
-  <div class="last_workout">
-    last workout: <span id="last_workout"><%= last_workout(@workouts) %></span>
-  </div>
-  <div class="workout_count">
-    workouts: <span id="workout_count"><%= @workouts.size || 0 %></span>
-  </div>
-  <div class="workout_activity">
-    activity: <span class="inlinesparkline workout_activity" values="<%= workout_activity(1.month) %>"></span>
-  </div>
-</div>
+<% content_for :statusbar do -%>
+  <%= render "statusbar", :workouts => @workouts %>
+<% end -%>
 
 <h1>add workout</h2>
 <div id="add-workout">
@@ -21,12 +13,10 @@
   <% end -%>
 </div>
 
-<div id="workout-notice"> </div>
-
 <h1>workouts</h1>
 <div id="workouts">
   <% if @workouts.any? %>
-    <%= render :partial => @workouts, :locals => { :list => true } %>
+    <%= render @workouts %>
   <% else -%>
     <p>add some workouts!</p>
   <% end -%>
