@@ -27,6 +27,7 @@ a:hover {
   color: rgba(148,199,182,0.5);
 }
 
+#user_nav,
 p.notice,
 p.alert {
   padding: 6px 30px;
@@ -34,6 +35,13 @@ p.alert {
 }
 p.notice { background: rgba(214,225,199,1); }
 p.alert { background: rgba(211, 100, 59, 1); }
+#user_nav {
+  color: rgba(64,59,51,1);
+  background: rgba(237,235,230,1);
+  /* color: rgba(237,235,230,1); */
+  /* background: rgba(64,59,51,1); */
+  /* background: #45484d; */
+}
 
 /* status bar
  * ----------------------------------------------------------------- */
