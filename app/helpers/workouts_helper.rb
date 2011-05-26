@@ -1,10 +1,10 @@
 module WorkoutsHelper
   def stat_workout_counter
-    Workout.count || 0
+    current_user.workouts.count || 0
   end
 
   def stat_last_workout
-    latest = Workout.order("date DESC").first
+    latest = current_user.workouts.order("date DESC").first
     days_ago_in_words(latest.date)
   end
 
@@ -20,7 +20,7 @@ module WorkoutsHelper
 
   def last_workout(workouts)
     if workouts.any?
-      latest = Workout.order("date DESC").first
+      latest = current_user.workouts.order("date DESC").first
       days_ago_in_words(latest.date)
     else
       "soon"
@@ -33,7 +33,7 @@ module WorkoutsHelper
     end_date   = Date.today
     start_date = Date.today - timeframe
 
-    workouts = Workout.where(:date => start_date..end_date)
+    workouts = current_user.workouts.where(:date => start_date..end_date)
     activity = []
     (start_date..end_date).step(1) do |day|
       if workouts.where(:date => day).any?

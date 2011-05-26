@@ -7,16 +7,22 @@ body {
   background: rgba(237,235,230,1);
 }
 
-/* .workout_activity { display: none; } */
-
 h1 {
   color: rgba(211,100,59,1);
   text-transform: uppercase;
   font-weight: bold;
   font-size: .9em;
   margin: 35px 0 10px 20px;
-
 }
+
+h2 {
+  color: rgba(211,100,59,1);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .8em;
+  margin: 15px 0 10px 20px;
+}
+
 
 a {
   color: rgba(148,199,182,1);
@@ -144,3 +150,7 @@ div.exercise span.reps {}
 
 .exercise_form {}
 
+/* users form
+ * ----------------------------------------------------------------- */
+#session_new { padding: 20px; }
+#user_new { padding: 20px; }

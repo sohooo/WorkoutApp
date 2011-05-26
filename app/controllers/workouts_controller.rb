@@ -1,6 +1,9 @@
 class WorkoutsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts.all
     respond_to do |format|
       format.html # index.html.erb
       format.rss
@@ -8,7 +11,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    @workout = Workout.create!(params[:workout])
+    @workout = current_user.workouts.create!(params[:workout])
     flash[:notice] = "Workout created"
     respond_to do |format|
       format.html { redirect_to workouts_path }
@@ -17,14 +20,14 @@ class WorkoutsController < ApplicationController
   end
 
   def update
-    @workout = Workout.find(params[:id])
+    @workout = current_user.workouts.find(params[:id])
     respond_to do |format|
       format.js
     end
   end
 
   def destroy
-    @workout = Workout.find(params[:id])
+    @workout = current_user.workouts.find(params[:id])
     @workout.destroy
     respond_to do |format|
       format.html { redirect_to workouts_path }
