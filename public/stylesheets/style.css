@@ -27,6 +27,14 @@ a:hover {
   color: rgba(148,199,182,0.5);
 }
 
+p.notice,
+p.alert {
+  padding: 6px 30px;
+  font-size: 12px;
+}
+p.notice { background: rgba(214,225,199,1); }
+p.alert { background: rgba(211, 100, 59, 1); }
+
 /* status bar
  * ----------------------------------------------------------------- */
 #status {

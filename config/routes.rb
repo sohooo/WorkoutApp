@@ -1,5 +1,9 @@
 WorkoutApp::Application.routes.draw do
 
+  root :to => "Workouts#index"
+
+  devise_for :users
+
   resources :workouts do
     resources :exercises
   end
