@@ -46,10 +46,10 @@ module WorkoutsHelper
   end
 
   def days_ago_in_words(date, include_seconds = false)
-    to_time   = Time.now
+    to_time   = Time.now.beginning_of_day
     from_time = date.beginning_of_day
-    days_ago  = ((to_time - from_time)/1.day).abs.round
-    [nil, "today", "yesterday"][days_ago] || 
+    days_ago  = ((to_time - from_time)/1.day).abs.round.to_i
+    ["today", "yesterday"][days_ago] || 
       distance_of_time_in_words(from_time, to_time, include_seconds) + " ago"
   end
 end
