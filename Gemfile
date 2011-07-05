@@ -9,6 +9,9 @@ gem 'heroku'
 gem 'sqlite3'
 gem 'devise'
 
+gem 'rails3-jquery-autocomplete'
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

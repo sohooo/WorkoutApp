@@ -9,7 +9,8 @@ WorkoutApp::Application.routes.draw do
   }
 
   resources :workouts do
-    resources :exercises
+   resources :exercises
+   get :autocomplete_exercise_name, :on => :collection
   end
 
   # The priority is based upon order of creation:

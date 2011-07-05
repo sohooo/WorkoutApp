@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
 
   before_filter :authenticate_user!
+  autocomplete :exercise, :name, :scopes => [:uniquely_named], :full => true
 
   def index
     @workouts = current_user.workouts.all

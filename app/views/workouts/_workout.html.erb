@@ -14,7 +14,8 @@
 
   <div class="exercise_form workout_<%= workout.id %>">
     <%= form_for [workout, Exercise.new], :remote => true do |f| %>
-      <%= f.text_field :name,     :placeholder => "name",   :size => 20 %>
+      <%= f.autocomplete_field :name, autocomplete_exercise_name_workouts_path,
+                                  :placeholder => "name",   :size => 20 %>
       <%= f.number_field :weight, :placeholder => "weight", :size => 4 %>
       <%= f.number_field :reps,   :placeholder => "reps",   :size => 4 %>
       <%= f.number_field :sets,   :placeholder => "sets",   :size => 4 %>
